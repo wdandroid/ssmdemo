@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskaoyan.dao.UserDao">
+ 
+   <select id="findUserById" parameterType="int" resultType="user">
+     select * from t_user where uid = #{id};
+   </select>
+   
+    <select id="insertUser" parameterType="user"  >
+       insert into t_user values(null,#{username},#{nickname},#{password},#{email},#{birthday} ,#{headicon},#{updatetime},#{state},#{activecode});
+   </select>
+   
+    <update id="deleteUserById" parameterType="int"  >
+       delete from t_user where uid = #{id};
+   </update>
+</mapper>
